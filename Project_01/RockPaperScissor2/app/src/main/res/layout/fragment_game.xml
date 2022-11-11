@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="gameViewModel"
+            type="com.davidson.rockpaperscissor2.GameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient"
+        tools:context=".GameFragment">
+
+
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rubik_mono_one"
+            android:text="@{@string/str_choice(gameViewModel.playerResult)}"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.18"
+            tools:text="START GAME"/>
+
+        <ImageView
+            android:id="@+id/playerChoiceImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toStartOf="@+id/compChoiceImage"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultTextView"
+            app:srcCompat="@drawable/rock"
+            tools:srcCompat="@drawable/rock"/>
+
+        <ImageView
+            android:id="@+id/compChoiceImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/playerChoiceImage"
+            app:layout_constraintTop_toBottomOf="@+id/resultTextView"
+            app:srcCompat="@drawable/paper"
+            tools:srcCompat="@drawable/paper" />
+
+        <TextView
+            android:id="@+id/playerNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/rubik_mono_one"
+            android:text="@string/player_name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/resultTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.495" />
+
+        <TextView
+            android:id="@+id/compNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/rubik_mono_one"
+            android:text="@string/comp_name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/resultTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.495" />
+
+        <TextView
+            android:id="@+id/playerScoreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/rubik_mono_one"
+            android:text="@{gameViewModel.playerScore.toString()}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playerNameTextView"
+            tools:text="0"/>
+
+        <TextView
+            android:id="@+id/compScoreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/rubik_mono_one"
+            android:text="@{gameViewModel.compScore.toString()}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/compNameTextView"
+            tools:text="0"/>
+
+        <ImageView
+            android:id="@+id/resultImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="38dp"
+            app:layout_constraintStart_toStartOf="@+id/playerChoiceImage"
+            app:layout_constraintTop_toBottomOf="@+id/playerChoiceImage"
+            app:srcCompat="@drawable/state_initial"
+            tools:srcCompat="@drawable/state_initial" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="49dp"
+            app:layout_constraintBottom_toBottomOf="@+id/resultImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/bg_asset"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/rockButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/paperButton"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:onClick="gameBegin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/paperButton"
+            app:srcCompat="@drawable/clickable_rock"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/paperButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:onClick="gameBegin"
+            app:layout_constraintEnd_toStartOf="@+id/scissorButton"
+            app:layout_constraintStart_toEndOf="@+id/rockButton"
+            app:layout_constraintTop_toTopOf="@+id/scissorButton"
+            app:srcCompat="@drawable/clickable_paper"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/scissorButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="43dp"
+            android:onClick="gameBegin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/paperButton"
+            app:srcCompat="@drawable/clickable_scissor"
+            tools:ignore="ImageContrastCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

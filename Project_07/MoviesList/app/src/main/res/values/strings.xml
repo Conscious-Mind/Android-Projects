@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Movies List</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cover">Cover</string>
+    <string name="title_place_holder">Title Place Holder</string>
+    <string name="year_placeholder">Year PlaceHolder</string>
+</resources>
