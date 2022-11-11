@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/addContactFragment">
+
+    <fragment
+        android:id="@+id/addContactFragment"
+        android:name="com.davidson.phonebook.addcontact.AddContactFragment"
+        android:label="fragment_add_contact"
+        tools:layout="@layout/fragment_add_contact" >
+        <action
+            android:id="@+id/action_addContactFragment_to_showContactFragment"
+            app:destination="@id/showContactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showContactFragment"
+        android:name="com.davidson.phonebook.showContact.ShowContactFragment"
+        android:label="fragment_show_contact"
+        tools:layout="@layout/fragment_show_contact" >
+        <action
+            android:id="@+id/action_showContactFragment_to_addContactFragment"
+            app:destination="@id/addContactFragment" />
+    </fragment>
+</navigation>
